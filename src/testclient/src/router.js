@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import Players from './views/Players'
+import Profile from './views/Profile'
 
 Vue.use(Router);
 
@@ -21,5 +23,16 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
+    {
+      path: '/Players',
+      name: 'players',
+      component: Players
+    },
+    {
+      path:'/Players/:username',
+      component:Profile,
+      name: 'userProfile',
+      props:true
+    }
   ],
 });
